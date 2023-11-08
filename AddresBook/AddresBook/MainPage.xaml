@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AddresBook.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Dodaj" Clicked="AddToDatabase"/>
+        <ToolbarItem Text="Edytuj" Clicked="EditDataPage"/>
+        <ToolbarItem Text="Usuń" Clicked="DeleteData"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <SearchBar x:Name="searchBar" TextChanged="SearchFromList"/>
+        <ListView x:Name="listaAdresow">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Imię" Grid.Column="0" />
+                    <Label Text="Nazwisko" Grid.Column="1" />
+                    <Label Text="Telefon" Grid.Column="2" />
+                    <Label Text="Email" Grid.Column="3"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding imie}" Grid.Column="0" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding nazwisko}" Grid.Column="1" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding telefon}" Grid.Column="2" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding email}" Grid.Column="3" VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ProgressBar x:Name="progressBar" Progress="1"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Poprzedni" Clicked="ListBeforeClick"/>
+            <Button Text="Następny" HorizontalOptions="EndAndExpand" Clicked="ListAfterClick"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

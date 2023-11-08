@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AddresBook.Pages.EditAdressPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="nazwisko" Placeholder="Nazwisko"/>
+            <Entry x:Name="imie" Placeholder="Imie"/>
+            <Entry x:Name="telefon" Placeholder="Telefon"/>
+            <Entry x:Name="email" Placeholder="Email"/>
+
+            <Button Text="Edytuj" Clicked="EditData"/>
+            <Button Text="Anuluj" Clicked="CancelEdit"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
